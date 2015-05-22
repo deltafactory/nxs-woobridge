@@ -1,0 +1,20 @@
+.nxs-woominicart ul.cart_list
+{
+	margin-left: 0px !important;
+	list-style: none !important;
+padding-bottom: 10px;
+}
+.nxs-woominicart ul.cart_list img
+{
+	display: block;
+       padding-right: 5px;
+padding-bottom: 10px;
+}
+.nxs-woominicart p.button
+{
+padding: 0;
+}
+.nxs-woominicart p.total
+{
+padding-bottom: 10px;
+}
