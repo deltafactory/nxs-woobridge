@@ -67,31 +67,20 @@ add_action("init", "nxs_woobridge_init");
 
 function nxs_woobridge_getwidgets($result, $widgetargs)
 {
+	// No modifications necessary if WooCommerce is not active.
+	if ( ! isset( $GLOBALS['woocommerce'] ) ) {
+		return $result;
+	}
+
 	$nxsposttype = $widgetargs["nxsposttype"];
-	$pagetemplate = $widgetargs["pagetemplate"];
 	
 	if ($nxsposttype == "busrulesset")
 	{
-		// woocommerce 
-		global $woocommerce;
-		if (isset($woocommerce))
-		{
-			$result[] = array("widgetid" => "woobusrulearchiveprodcatdyncontent");
-		}		
-	}
-
-	if ($nxsposttype == "busrulesset") 
-	{
-		// WOOCOMMERCE
-		 
-		global $woocommerce;
-		if (isset($woocommerce))
-		{
-			$result[] = array("widgetid" => "woobusrulewoopage");
-			$result[] = array("widgetid" => "woobusruleproduct");
-			$result[] = array("widgetid" => "woobusrulecategory");
-			$result[] = array("widgetid" => "woobusrulearchiveprodcat");
-		}
+		$result[] = array("widgetid" => "woobusrulearchiveprodcatdyncontent");
+		$result[] = array("widgetid" => "woobusrulewoopage");
+		$result[] = array("widgetid" => "woobusruleproduct");
+		$result[] = array("widgetid" => "woobusrulecategory");
+		$result[] = array("widgetid" => "woobusrulearchiveprodcat");
 	}
 	
 	if 
@@ -105,21 +94,16 @@ function nxs_woobridge_getwidgets($result, $widgetargs)
 		$nxsposttype == "sidebar"
 	)
 	{
-		// WOOCOMMERCE
-		global $woocommerce;
-		if (isset($woocommerce))
-		{
-			$result[] = array("widgetid" => "wooproductdetail");
-			$result[] = array("widgetid" => "woomessages");
-			$result[] = array("widgetid" => "wooprodlist");
-			$result[] = array("widgetid" => "woocheckout");
-			$result[] = array("widgetid" => "woothankyou");
-			$result[] = array("widgetid" => "woocart");
-			$result[] = array("widgetid" => "wooaddtocart");
-			$result[] = array("widgetid" => "woogotocart");
-			$result[] = array("widgetid" => "wooproductreference");
-			$result[] = array("widgetid" => "woominicart");
-		}
+		$result[] = array("widgetid" => "wooproductdetail");
+		$result[] = array("widgetid" => "woomessages");
+		$result[] = array("widgetid" => "wooprodlist");
+		$result[] = array("widgetid" => "woocheckout");
+		$result[] = array("widgetid" => "woothankyou");
+		$result[] = array("widgetid" => "woocart");
+		$result[] = array("widgetid" => "wooaddtocart");
+		$result[] = array("widgetid" => "woogotocart");
+		$result[] = array("widgetid" => "wooproductreference");
+		$result[] = array("widgetid" => "woominicart");
 	}
 	
 	//		
